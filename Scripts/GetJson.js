@@ -25,4 +25,7 @@ function ProcessData(data) {
     topics = data.data.attributes.topics;
     departments = data.data.attributes.departments;
 
+    $("#petition-title").text(title);
+    $("#petition-description").text(background);
+    $("#petition-details").text(moreDetails);
 }
