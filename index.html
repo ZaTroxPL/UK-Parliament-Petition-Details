@@ -7,13 +7,21 @@
     <title>Petition Detail's</title>
     <script src="Scripts/jquery-3.5.1.js"></script>
     <script src="Scripts/GetJson.js"></script>
-    <script src="Style/main.css"></script>
+    <link rel="stylesheet" href="Style/main.css">
+    </script>
 </head>
 
 <body>
-    <h2>Input petition ID</h2>
-    <input type="number" name="" id="petitionId">
-    <button onclick="GetPetitionDetails()">Submit</button>
+    <div class="container">
+        <div class="text-center">
+            <h2>Input Petition ID</h2>
+            <input type="number" id="petitionId">
+            <button onclick="GetPetitionDetails()">Submit</button>
+        </div>
+        <div id="petition-details">
+
+        </div>
+    </div>
 </body>
 
 </html>
