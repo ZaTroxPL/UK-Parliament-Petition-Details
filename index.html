@@ -7,6 +7,7 @@
     <title>Petition Detail's</title>
     <script src="Scripts/jquery-3.5.1.js"></script>
     <script src="Scripts/GetJson.js"></script>
+    <script src="Scripts/DarkModeToggle.js"></script>
     <link rel="stylesheet" href="Style/main.css">
     </script>
 </head>
@@ -17,6 +18,10 @@
             <h2>Input Petition ID</h2>
             <input type="number" id="petitionId">
             <button onclick="GetPetitionDetails()">Submit</button>
+            <label class="switch" onclick="ToggleDarkMode()">
+                <input id="darkMode" type="checkbox">
+                <span class="slider round"></span>
+            </label>
         </div>
         <hr />
         <div class="petition-container">
@@ -29,7 +34,42 @@
             <p id="petition-details">
 
             </p>
+
+            <table id="additional-details">
+                <tr>
+                    <th>
+                        Signatures:
+                    </th>
+                </tr>
+                <tr>
+                    <td id="signature-count">
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Created On:
+                    </th>
+                </tr>
+                <tr>
+                    <td id="created-on">
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Updated On:
+                    </th>
+                </tr>
+                <tr>
+                    <td id="updated-on">
+
+                    </td>
+                </tr>
+            </table>
+
         </div>
+
     </div>
 </body>
 
