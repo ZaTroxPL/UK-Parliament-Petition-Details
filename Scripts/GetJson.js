@@ -36,11 +36,12 @@ function ProcessData(data) {
     $("#signature-count").text(signatureCount);
     $("#created-on").text(days[createdAt.getDay()] + ", the " + createdAt.getOrdinalNumber() + " of " + months[createdAt.getMonth()] + " " + createdAt.getFullYear());
     $("#updated-on").text(days[updatedAt.getDay()] + ", the " + updatedAt.getOrdinalNumber() + " of " + months[updatedAt.getMonth()] + " " + updatedAt.getFullYear());
+    $("#topics-table>span>span").remove(); // reset the topics content
     for (var i = 0; i < topics.length; i++) {
         if (i === (topics.length - 1)) {
-            $("#topics-table>tbody>tr").append("<td> \"" + topics[i] + "\"</td>");
+            $("#topics-table>span").append("<span> \"" + topics[i] + "\"</span>");
         } else {
-            $("#topics-table>tbody>tr").append("<td> \"" + topics[i] + "\",</td>");
+            $("#topics-table>span").append("<span> \"" + topics[i] + "\",</span>");
         }
 
     }

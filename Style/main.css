@@ -24,14 +24,13 @@ table {
     font-size: 1.5em;
 }
 
-#topics-table {
+#topics-table>span {
     text-align: left;
-    table-layout: auto;
+    font-weight: bold;
 }
 
-#topics-table>tbody>tr>th,
-#topics-table>tbody>tr>th {
-    width: 1%;
+#topics-table>span>span {
+    font-weight: normal;
 }
 
 .max-width {
