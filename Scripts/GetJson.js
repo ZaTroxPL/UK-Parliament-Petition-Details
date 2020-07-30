@@ -36,12 +36,34 @@ function ProcessData(data) {
     $("#signature-count").text(signatureCount);
     $("#created-on").text(days[createdAt.getDay()] + ", the " + createdAt.getOrdinalNumber() + " of " + months[createdAt.getMonth()] + " " + createdAt.getFullYear());
     $("#updated-on").text(days[updatedAt.getDay()] + ", the " + updatedAt.getOrdinalNumber() + " of " + months[updatedAt.getMonth()] + " " + updatedAt.getFullYear());
+    for (var i = 0; i < topics.length; i++) {
+        if (i === (topics.length - 1)) {
+            $("#topics-table>tbody>tr").append("<td> \"" + topics[i] + "\"</td>");
+        } else {
+            $("#topics-table>tbody>tr").append("<td> \"" + topics[i] + "\",</td>");
+        }
+
+    }
+
 }
 
 Date.prototype.getOrdinalNumber = function() {
     debugger;
+
     var date = this.getDate();
+
     switch (date) {
+        case 11:
+            return date + "th";
+        case 12:
+            return date + "th";
+        case 13:
+            return date + "th";
+    }
+
+    var lastDigit = date % 10;
+
+    switch (lastDigit) {
         case 1:
             return date + "st";
         case 2:
@@ -51,5 +73,6 @@ Date.prototype.getOrdinalNumber = function() {
         default:
             return date + "th";
     }
+
 
 }
