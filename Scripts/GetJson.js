@@ -45,6 +45,22 @@ function ProcessData(data) {
         }
 
     }
+    $("#departments-table>tbody").remove();
+    for (var i = 0; i < departments.length; i++) {
+        var tableRow;
+        if (i === 0) {
+            tableRow += "<tbody>";
+        }
+        tableRow += "<tr>";
+        tableRow += ("<td>" + departments[i].name + "</td>");
+        tableRow += ("<td>" + departments[i].acronym + "</td>");
+        tableRow += ("<td>" + departments[i].url + "</td>");
+        tableRow += "</tr>";
+        if (i === (departments.length - 1)) {
+            tableRow += "</tbody>";
+        }
+        $("#departments-table").append(tableRow);
+    }
 
 }
 
