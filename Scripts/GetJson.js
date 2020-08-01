@@ -15,7 +15,7 @@ function GetPetitionDetails() {
 function ProcessData(data) {
     debugger;
     var link, title, background, moreDetails, signatureCount, createdAt, updatedAt,
-        topics, departments;
+        topics, departments, countries;
 
     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -29,6 +29,7 @@ function ProcessData(data) {
     updatedAt = new Date(data.data.attributes.updated_at);
     topics = data.data.attributes.topics;
     departments = data.data.attributes.departments;
+    countries = data.data.attributes.signatures_by_country;
 
     $("#petition-title").text(title);
     $("#petition-description").text(background);
@@ -47,7 +48,7 @@ function ProcessData(data) {
     }
     $("#departments-table>tbody").remove();
     for (var i = 0; i < departments.length; i++) {
-        var tableRow;
+        var tableRow = "";
         if (i === 0) {
             tableRow += "<tbody>";
         }
@@ -61,7 +62,24 @@ function ProcessData(data) {
         }
         $("#departments-table").append(tableRow);
     }
+    $("#countries-table>tbody").remove();
+    for (var i = 0; i < countries.length; i++) {
+        var tableRow = "";
+        if (i === 0) {
+            tableRow += "<tbody>";
+        }
+        tableRow += "<tr>";
+        tableRow += ("<td>" + countries[i].name + "</td>");
+        tableRow += ("<td>" + countries[i].code + "</td>");
+        tableRow += ("<td class=\"signature-count\">" + countries[i].signature_count + "</td>");
+        tableRow += "</tr>";
+        if (i === (countries.length - 1)) {
+            tableRow += "</tbody>";
+        }
+        $("#countries-table").append(tableRow);
+    }
 
+    ToggleDarkMode();
 }
 
 Date.prototype.getOrdinalNumber = function() {

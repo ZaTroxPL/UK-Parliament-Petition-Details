@@ -33,32 +33,23 @@ table {
     font-weight: normal;
 }
 
-#departments-div {
+.custom-div {
     margin-top: 30px;
 }
 
-#departments-div>span {
-    text-align: left;
-    font-weight: bold;
-    cursor: pointer;
-    border: black 2px solid;
-    padding: 5px;
-    border-radius: 14px;
-}
-
-#departments-table {
+.custom-table {
     display: none;
     margin-top: 15px;
     margin-bottom: 15px;
 }
 
-#departments-table>thead>tr>th {
+.custom-table>thead>tr>th {
     padding-top: 5px;
     padding-bottom: 5px;
     border-bottom: black 1px solid;
 }
 
-#departments-table>tbody>tr>td {
+.custom-table>tbody>tr>td {
     padding-top: 5px;
     padding-bottom: 5px;
     text-align: center;
@@ -86,7 +77,16 @@ table {
     margin-left: 20%;
 }
 
-#signature-count {
+.table-button {
+    text-align: left;
+    font-weight: bold;
+    cursor: pointer;
+    border: black 2px solid;
+    padding: 5px;
+    border-radius: 14px;
+}
+
+.signature-count {
     color: #008800;
 }
 
