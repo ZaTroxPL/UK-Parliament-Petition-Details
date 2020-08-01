@@ -41,6 +41,9 @@ table {
     text-align: left;
     font-weight: bold;
     cursor: pointer;
+    border: black 2px solid;
+    padding: 5px;
+    border-radius: 14px;
 }
 
 #departments-table {
