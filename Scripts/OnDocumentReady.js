@@ -9,6 +9,10 @@ $(document).ready(function() {
         $("#countries-table").toggle();
     });
 
+    $("#constituencies-div>span").click(function() {
+        $("#constituencies-table").toggle();
+    });
+
     var hour = new Date();
     if (hour.getHours() >= 20 || hour.getHours() <= 5) {
         var toggleSwitch = document.getElementById("darkMode").checked = true;

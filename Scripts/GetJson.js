@@ -15,7 +15,7 @@ function GetPetitionDetails() {
 function ProcessData(data) {
     debugger;
     var link, title, background, moreDetails, signatureCount, createdAt, updatedAt,
-        topics, departments, countries;
+        topics, departments, countries, constituencies;
 
     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -30,6 +30,7 @@ function ProcessData(data) {
     topics = data.data.attributes.topics;
     departments = data.data.attributes.departments;
     countries = data.data.attributes.signatures_by_country;
+    constituencies = data.data.attributes.signatures_by_constituency;
 
     $("#petition-title").text(title);
     $("#petition-description").text(background);
@@ -77,6 +78,24 @@ function ProcessData(data) {
             tableRow += "</tbody>";
         }
         $("#countries-table").append(tableRow);
+    }
+
+    $("#constituencies-table>tbody").remove();
+    for (var i = 0; i < constituencies.length; i++) {
+        var tableRow = "";
+        if (i === 0) {
+            tableRow += "<tbody>";
+        }
+        tableRow += "<tr>";
+        tableRow += ("<td>" + constituencies[i].name + "</td>");
+        tableRow += ("<td>" + constituencies[i].mp + "</td>");
+        tableRow += ("<td>" + constituencies[i].ons_code + "</td>");
+        tableRow += ("<td class=\"signature-count\">" + constituencies[i].signature_count + "</td>");
+        tableRow += "</tr>";
+        if (i === (constituencies.length - 1)) {
+            tableRow += "</tbody>";
+        }
+        $("#constituencies-table").append(tableRow);
     }
 
     ToggleDarkMode();
