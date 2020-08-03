@@ -1,15 +1,15 @@
 $(document).ready(function() {
     debugger;
 
-    $("#departments-div>span").click(function() {
+    $("#departments-div>div").click(function() {
         $("#departments-table").toggle();
     });
 
-    $("#countries-div>span").click(function() {
+    $("#countries-div>div").click(function() {
         $("#countries-table").toggle();
     });
 
-    $("#constituencies-div>span").click(function() {
+    $("#constituencies-div>div").click(function() {
         $("#constituencies-table").toggle();
     });
 
