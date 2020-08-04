@@ -14,7 +14,7 @@ function GetPetitionDetails() {
 
 function ProcessData(data) {
     debugger;
-    var link, title, background, moreDetails, signatureCount, createdAt, updatedAt,
+    var link, title, background, moreDetails, signatureCount, createdAt, updatedAt, status,
         topics, departments, countries, constituencies, regions;
 
     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -27,6 +27,7 @@ function ProcessData(data) {
     signatureCount = data.data.attributes.signature_count;
     createdAt = new Date(data.data.attributes.created_at);
     updatedAt = new Date(data.data.attributes.updated_at);
+    status = data.data.attributes.state;
     topics = data.data.attributes.topics;
     departments = data.data.attributes.departments;
     countries = data.data.attributes.signatures_by_country;
@@ -39,12 +40,13 @@ function ProcessData(data) {
     $("#signature-count").text(signatureCount);
     $("#created-on").text(days[createdAt.getDay()] + ", the " + createdAt.getOrdinalNumber() + " of " + months[createdAt.getMonth()] + " " + createdAt.getFullYear());
     $("#updated-on").text(days[updatedAt.getDay()] + ", the " + updatedAt.getOrdinalNumber() + " of " + months[updatedAt.getMonth()] + " " + updatedAt.getFullYear());
-    $("#topics-table>span>span").remove(); // reset the topics content
+    $("#status>span").text(status);
+    $("#topics-div>span>span").remove(); // reset the topics content
     for (var i = 0; i < topics.length; i++) {
         if (i === (topics.length - 1)) {
-            $("#topics-table>span").append("<span> \"" + topics[i] + "\"</span>");
+            $("#topics-div>span").append("<span> \"" + topics[i] + "\"</span>");
         } else {
-            $("#topics-table>span").append("<span> \"" + topics[i] + "\",</span>");
+            $("#topics-div>span").append("<span> \"" + topics[i] + "\",</span>");
         }
 
     }

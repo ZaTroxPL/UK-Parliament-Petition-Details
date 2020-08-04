@@ -24,12 +24,20 @@ table {
     font-size: 1.5em;
 }
 
-#topics-table>span {
+#status {
+    font-weight: bold;
+}
+
+#status>span {
+    font-weight: normal;
+}
+
+#topics-div>span {
     text-align: left;
     font-weight: bold;
 }
 
-#topics-table>span>span {
+#topics-div>span>span {
     font-weight: normal;
 }
 
