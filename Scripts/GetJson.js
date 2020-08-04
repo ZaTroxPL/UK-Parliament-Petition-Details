@@ -40,7 +40,7 @@ function ProcessData(data) {
     $("#signature-count").text(signatureCount);
     $("#created-on").text(days[createdAt.getDay()] + ", the " + createdAt.getOrdinalNumber() + " of " + months[createdAt.getMonth()] + " " + createdAt.getFullYear());
     $("#updated-on").text(days[updatedAt.getDay()] + ", the " + updatedAt.getOrdinalNumber() + " of " + months[updatedAt.getMonth()] + " " + updatedAt.getFullYear());
-    $("#status>span").text(status);
+    $("#status-div>span").text(status);
     $("#topics-div>span>span").remove(); // reset the topics content
     for (var i = 0; i < topics.length; i++) {
         if (i === (topics.length - 1)) {

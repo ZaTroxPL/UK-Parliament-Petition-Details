@@ -24,11 +24,11 @@ table {
     font-size: 1.5em;
 }
 
-#status {
+#status-div {
     font-weight: bold;
 }
 
-#status>span {
+#status-div>span {
     font-weight: normal;
 }
 
