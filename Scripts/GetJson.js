@@ -15,7 +15,7 @@ function GetPetitionDetails() {
 function ProcessData(data) {
     debugger;
     var link, title, background, moreDetails, signatureCount, createdAt, updatedAt,
-        topics, departments, countries, constituencies;
+        topics, departments, countries, constituencies, regions;
 
     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -31,6 +31,7 @@ function ProcessData(data) {
     departments = data.data.attributes.departments;
     countries = data.data.attributes.signatures_by_country;
     constituencies = data.data.attributes.signatures_by_constituency;
+    regions = data.data.attributes.signatures_by_region;
 
     $("#petition-title").text(title);
     $("#petition-description").text(background);
@@ -80,23 +81,24 @@ function ProcessData(data) {
         $("#countries-table").append(tableRow);
     }
 
-    $("#constituencies-table>tbody").remove();
-    for (var i = 0; i < constituencies.length; i++) {
+    $("#regions-table>tbody").remove();
+    for (var i = 0; i < regions.length; i++) {
         var tableRow = "";
         if (i === 0) {
             tableRow += "<tbody>";
         }
         tableRow += "<tr>";
-        tableRow += ("<td>" + constituencies[i].name + "</td>");
-        tableRow += ("<td>" + constituencies[i].mp + "</td>");
-        tableRow += ("<td>" + constituencies[i].ons_code + "</td>");
-        tableRow += ("<td class=\"signature-count\">" + constituencies[i].signature_count + "</td>");
+        tableRow += ("<td>" + regions[i].name + "</td>");
+        tableRow += ("<td>" + regions[i].ons_code + "</td>");
+        tableRow += ("<td class=\"signature-count\">" + regions[i].signature_count + "</td>");
         tableRow += "</tr>";
-        if (i === (constituencies.length - 1)) {
+        if (i === (regions.length - 1)) {
             tableRow += "</tbody>";
         }
-        $("#constituencies-table").append(tableRow);
+        $("#regions-table").append(tableRow);
     }
+
+
 
     ToggleDarkMode();
 }
