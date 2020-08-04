@@ -81,6 +81,24 @@ function ProcessData(data) {
         $("#countries-table").append(tableRow);
     }
 
+    $("#constituencies-table>tbody").remove();
+    for (var i = 0; i < constituencies.length; i++) {
+        var tableRow = "";
+        if (i === 0) {
+            tableRow += "<tbody>";
+        }
+        tableRow += "<tr>";
+        tableRow += ("<td>" + constituencies[i].name + "</td>");
+        tableRow += ("<td>" + constituencies[i].mp + "</td>");
+        tableRow += ("<td>" + constituencies[i].ons_code + "</td>");
+        tableRow += ("<td class=\"signature-count\">" + constituencies[i].signature_count + "</td>");
+        tableRow += "</tr>";
+        if (i === (constituencies.length - 1)) {
+            tableRow += "</tbody>";
+        }
+        $("#constituencies-table").append(tableRow);
+    }
+
     $("#regions-table>tbody").remove();
     for (var i = 0; i < regions.length; i++) {
         var tableRow = "";
@@ -97,8 +115,6 @@ function ProcessData(data) {
         }
         $("#regions-table").append(tableRow);
     }
-
-
 
     ToggleDarkMode();
 }
