@@ -59,7 +59,7 @@ function ProcessData(data) {
         tableRow += "<tr>";
         tableRow += ("<td>" + departments[i].name + "</td>");
         tableRow += ("<td>" + departments[i].acronym + "</td>");
-        tableRow += ("<td>" + departments[i].url + "</td>");
+        tableRow += ("<td><a href=\"" + departments[i].url + "\">" + departments[i].url + "</a></td>");
         tableRow += "</tr>";
         if (i === (departments.length - 1)) {
             tableRow += "</tbody>";
