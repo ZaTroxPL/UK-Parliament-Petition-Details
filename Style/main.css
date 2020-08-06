@@ -41,7 +41,8 @@ table {
     font-weight: normal;
 }
 
-#countries-search {
+.custom-search {
+    display: none;
     margin-top: 30px;
     margin-bottom: 15px;
 }
