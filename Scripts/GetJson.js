@@ -14,12 +14,16 @@ function GetPetitionDetails() {
 
 function ProcessData(data) {
     debugger;
+
+    // Creating empty vars (I know this step is kind of unnecessery, but I never created vars like this, so wanted to try)
     var link, title, background, moreDetails, signatureCount, createdAt, updatedAt, status,
         topics, departments, countries, constituencies, regions;
 
+    // Used for dates later on
     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+    // Populating the previously created empty vars
     link = data.links.self;
     title = data.data.attributes.action;
     background = data.data.attributes.background;
@@ -34,6 +38,7 @@ function ProcessData(data) {
     constituencies = data.data.attributes.signatures_by_constituency;
     regions = data.data.attributes.signatures_by_region;
 
+    // Populating the page with information from the JSON response
     $("#petition-title").text(title);
     $("#petition-description").text(background);
     $("#petition-details").text(moreDetails);
@@ -41,6 +46,8 @@ function ProcessData(data) {
     $("#created-on").text(days[createdAt.getDay()] + ", the " + createdAt.getOrdinalNumber() + " of " + months[createdAt.getMonth()] + " " + createdAt.getFullYear());
     $("#updated-on").text(days[updatedAt.getDay()] + ", the " + updatedAt.getOrdinalNumber() + " of " + months[updatedAt.getMonth()] + " " + updatedAt.getFullYear());
     $("#status-div>span").text(status);
+
+    // Populate topics
     $("#topics-div>span>span").remove(); // reset the topics content
     for (var i = 0; i < topics.length; i++) {
         if (i === (topics.length - 1)) {
@@ -50,7 +57,9 @@ function ProcessData(data) {
         }
 
     }
-    $("#departments-table>tbody").remove();
+
+    // Populate departments
+    $("#departments-table>tbody").remove(); // reset the departments table content
     for (var i = 0; i < departments.length; i++) {
         var tableRow = "";
         if (i === 0) {
@@ -66,7 +75,9 @@ function ProcessData(data) {
         }
         $("#departments-table").append(tableRow);
     }
-    $("#countries-table>tbody").remove();
+
+    // Populate countries
+    $("#countries-table>tbody").remove(); // reset the countries table content
     for (var i = 0; i < countries.length; i++) {
         var tableRow = "";
         if (i === 0) {
@@ -83,7 +94,8 @@ function ProcessData(data) {
         $("#countries-table").append(tableRow);
     }
 
-    $("#constituencies-table>tbody").remove();
+    // Populate constituencies
+    $("#constituencies-table>tbody").remove(); // reset the constituencies table content
     for (var i = 0; i < constituencies.length; i++) {
         var tableRow = "";
         if (i === 0) {
@@ -101,7 +113,8 @@ function ProcessData(data) {
         $("#constituencies-table").append(tableRow);
     }
 
-    $("#regions-table>tbody").remove();
+    // Populate regions
+    $("#regions-table>tbody").remove(); // reset the regions table content
     for (var i = 0; i < regions.length; i++) {
         var tableRow = "";
         if (i === 0) {
@@ -118,9 +131,10 @@ function ProcessData(data) {
         $("#regions-table").append(tableRow);
     }
 
-    ToggleDarkMode();
+    ToggleDarkMode(); // this is here to make sure that the signature numbers are of proper color
 }
 
+// Extend the capabilities of teh Date object
 Date.prototype.getOrdinalNumber = function() {
     debugger;
 
@@ -147,6 +161,4 @@ Date.prototype.getOrdinalNumber = function() {
         default:
             return date + "th";
     }
-
-
 }
