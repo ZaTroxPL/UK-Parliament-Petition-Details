@@ -12,14 +12,24 @@ $(document).ready(function() {
 
     $("#constituencies-div>div").click(function() {
         $("#constituencies-table").toggle();
+        $("#constituencies-search").toggle();
     });
 
     $("#regions-div>div").click(function() {
         $("#regions-table").toggle();
+        $("#regions-search").toggle();
     });
 
     $("#countries-search").keyup(function() {
         FilterTable("countries-table", this);
+    })
+
+    $("#constituencies-search").keyup(function() {
+        FilterTable("constituencies-table", this);
+    })
+
+    $("#regions-search").keyup(function() {
+        FilterTable("regions-table", this);
     })
 
     var hour = new Date();
