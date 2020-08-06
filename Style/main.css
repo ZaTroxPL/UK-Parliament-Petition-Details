@@ -41,6 +41,11 @@ table {
     font-weight: normal;
 }
 
+#countries-search {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
 .custom-div {
     margin-top: 30px;
 }

@@ -7,6 +7,7 @@ $(document).ready(function() {
 
     $("#countries-div>div").click(function() {
         $("#countries-table").toggle();
+        $("#countries-search").toggle();
     });
 
     $("#constituencies-div>div").click(function() {
@@ -16,6 +17,10 @@ $(document).ready(function() {
     $("#regions-div>div").click(function() {
         $("#regions-table").toggle();
     });
+
+    $("#countries-search").keyup(function() {
+        FilterTable("countries-table", this);
+    })
 
     var hour = new Date();
     if (hour.getHours() >= 20 || hour.getHours() <= 5) {
