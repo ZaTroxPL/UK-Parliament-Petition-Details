@@ -134,7 +134,7 @@ function ProcessData(data) {
     ToggleDarkMode(); // this is here to make sure that the signature numbers are of proper color
 }
 
-// Extend the capabilities of teh Date object
+// Extend the capabilities of the Date object
 Date.prototype.getOrdinalNumber = function() {
     debugger;
 
