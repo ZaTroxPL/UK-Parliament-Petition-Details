@@ -1,13 +1,14 @@
 # UK-Parliament-Petition-Details
 View details of a Parliament Petition in the UK
 
-So, turns out that you can get additional data about a petition from a petition.parliament.uk website. 
+So, turns out that you can get additional data about a petition from a petition.parliament.uk website. <br>
 The additional data is provided in a JSON format, so I decided to create this little Web App to display that additional information.
 
-(can't get AWS to work with my domain for some reason, so this will have to do for now)
-(turns out when getting a .co.uk domain, your data needs to be verified by Nominet, so that may take a while)
+<strike>(can't get AWS to work with my domain for some reason, so this will have to do for now)</strike> <br>
+<strike>(turns out when getting a .co.uk domain, your data needs to be verified by Nominet, so that may take a while)</strike> <br>
+<strike>link: http://parliamentpetitiondetails.co.uk.s3-website.eu-west-2.amazonaws.com/</strike>
 
-link: http://parliamentpetitiondetails.co.uk.s3-website.eu-west-2.amazonaws.com/
+link: <a href="http://parliamentpetitiondetails.co.uk/">parliamentpetitiondetails.co.uk</a>
 
 <strong>How to get Petition ID:</strong>
 
